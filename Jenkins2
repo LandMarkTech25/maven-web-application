@@ -1,0 +1,18 @@
+node {
+  def mavenHome = tool name: 'maven3.8.2'
+  stage('1-Clone') {
+     git 'https://github.com/LandMarkTech25/maven-web-application'
+  }
+  stage('2-build') {
+    sh "${mavenHome}/bin/mvn clean package"
+  }
+  stage('3-codeQuality') {
+    //sh "${mavenHome}/bin/mvn sonar:sonar"
+  }
+  stage('4-Nexus') {
+    //sh "${mavenHome}/bin/mvn deploy"
+  }
+  stage('5-deploydocker') {
+    //sh
+  }
+}
